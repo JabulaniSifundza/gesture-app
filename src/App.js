@@ -9,11 +9,11 @@ import Webcam from "react-webcam";
 import "./App.css";
 import { drawHand } from "./utilities";
 
-///////// NEW STUFF IMPORTS
+
 import * as fp from "fingerpose";
 import victory from "./victory.png";
 import thumbs_up from "./thumbs_up.png";
-///////// NEW STUFF IMPORTS
+
 
 function App() {
   const webcamRef = useRef(null);
@@ -57,7 +57,7 @@ function App() {
       const hand = await net.estimateHands(video);
       // console.log(hand);
 
-      ///////// NEW STUFF ADDED GESTURE HANDLING
+  
 
       if (hand.length > 0) {
         const GE = new fp.GestureEstimator([
@@ -69,7 +69,7 @@ function App() {
           // console.log(gesture.gestures);
 
           const confidence = gesture.gestures.map(
-            (prediction) => prediction.confidence
+            (prediction) => prediction.score
           );
           const maxConfidence = confidence.indexOf(
             Math.max.apply(null, confidence)
@@ -80,7 +80,7 @@ function App() {
         }
       }
 
-      ///////// NEW STUFF ADDED GESTURE HANDLING
+
 
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
