@@ -1,6 +1,6 @@
-///////// NEW STUFF ADDED USE STATE
+
 import React, { useRef, useState, useEffect } from "react";
-///////// NEW STUFF ADDED USE STATE
+
 
 // import logo from './logo.svg';
 import * as tf from "@tensorflow/tfjs";
@@ -19,10 +19,10 @@ function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
-  ///////// NEW STUFF ADDED STATE HOOK
+
   const [emoji, setEmoji] = useState(null);
   const images = { thumbs_up: thumbs_up, victory: victory };
-  ///////// NEW STUFF ADDED STATE HOOK
+
 
   const runHandpose = async () => {
     const net = await handpose.load();
